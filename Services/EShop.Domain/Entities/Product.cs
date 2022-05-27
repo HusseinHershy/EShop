@@ -16,8 +16,7 @@ namespace EShop.Domain.Entities
         /// <summary>
         /// Unique Identifier Product
         /// </summary>
-        [Key]
-        public long Id { get; set; }
+        public long ProductId { get; set; }
         /// <summary>
         /// Product Name
         /// </summary>

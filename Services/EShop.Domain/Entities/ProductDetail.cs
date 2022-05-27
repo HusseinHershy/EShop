@@ -12,18 +12,24 @@ namespace EShop.Domain.Entities
 
     public class ProductDetail : EntityBase
     {
-        [ForeignKey("Product")]
+        /// <summary>
+        /// Product Details Unique Identifier
+        /// </summary>
+        public long productDetailId { get; set; }
+        /// <summary>
+        /// Foreign Key Product
+        /// </summary>
         public long productId { get; set; }
         /// <summary>
         /// Product Price
         /// </summary>
         [Range(1, 1000)]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         /// <summary>
         /// Product Price
         /// </summary>
         [Range(1, 1000)]
-        public double ActualCost { get; set; }
+        public decimal ActualCost { get; set; }
 
         /// <summary>
         /// Navigation Property Product
