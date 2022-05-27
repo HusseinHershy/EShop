@@ -1,3 +1,5 @@
+using EShop.API.Extensions;
+using EShop.Infrastracture.Persistance;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -13,7 +15,13 @@ namespace EShop.API
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build()
+                .MigrateDatabase<ProductContext>((context, services) =>
+                {
+                    ProductContextSeed.InitializeAsync(context)
+                      .Wait();
+                })
+                .Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
