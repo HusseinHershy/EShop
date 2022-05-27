@@ -1,3 +1,4 @@
+using EShop.Application;
 using EShop.Infrastracture;
 using EShop.Infrastracture.Persistance;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +28,7 @@ namespace EShop.API
         public void ConfigureServices(IServiceCollection services)
         {
            
+            services.AddApplicationServices();
             services.AddInfrastructureServices(Configuration);
 
             services.AddRazorPages();
