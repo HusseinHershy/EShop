@@ -1,0 +1,53 @@
+{
+  "Routes": [
+    //Product API
+    {
+      "DownstreamPathTemplate": "/api/V1/Product/CreateProduct",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/CreateProduct",
+      "UpstreamHttpMethod": ["POST" ]
+     
+    },
+    {
+      "DownstreamPathTemplate": "/api/V1/Product/GetProducts",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/GetProducts",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "3s",
+        "PeriodTimespan": 5,
+        "Limit": 1
+      },
+      "FileCacheOptions": { "TtlSeconds": 1 }
+    },
+    {
+      "DownstreamPathTemplate": "/api/V1/Product/GetProductById/{ProductId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/v1/Product/{ProductId}",
+      "UpstreamHttpMethod": [ "GET" ]
+  
+    }
+  ],
+  "GlobalConfiguration": {
+  }
+}

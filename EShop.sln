@@ -3,21 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Infrastracture", "Services\EShop.Infrastracture\EShop.Infrastracture.csproj", "{9FD7FDF2-1500-4ACF-968E-A8765EEF9EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.Infrastracture", "Services\EShop.Infrastracture\EShop.Infrastracture.csproj", "{9FD7FDF2-1500-4ACF-968E-A8765EEF9EBA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EShop.Services", "EShop.Services", "{DB7D13E2-D09F-46D7-BA0C-24A5726758A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProductService", "ProductService", "{A5865D62-F51F-4C42-8BF5-059BB10F541E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Domain", "Services\EShop.Domain\EShop.Domain.csproj", "{F9901365-792C-4270-B0F2-5D94B48F2B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.Domain", "Services\EShop.Domain\EShop.Domain.csproj", "{F9901365-792C-4270-B0F2-5D94B48F2B9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Application", "Services\EShop.Application\EShop.Application.csproj", "{4B47D818-80A1-4D7B-846F-82224EC8D4A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.Application", "Services\EShop.Application\EShop.Application.csproj", "{4B47D818-80A1-4D7B-846F-82224EC8D4A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.API", "Services\EShop.API\EShop.API.csproj", "{B4268DF6-39C1-40DC-9670-271D8CE27384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.API", "Services\EShop.API\EShop.API.csproj", "{B4268DF6-39C1-40DC-9670-271D8CE27384}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Eshop.WebApps", "Eshop.WebApps", "{49DC369A-3069-43C5-A3D6-D0FC1DCAD9BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShop.Admin", "WebApps\EShop.Admin\EShop.Admin.csproj", "{BF8B66D1-A90F-46F3-97C8-B67D68DD1C44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShop.Admin", "WebApps\EShop.Admin\EShop.Admin.csproj", "{BF8B66D1-A90F-46F3-97C8-B67D68DD1C44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Eshop.ApiGateways", "Eshop.ApiGateways", "{F42C6E97-2C31-4DA1-A56E-ABB10A9239CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EshopApiGw", "ApiGateways\EshopApiGw\EshopApiGw.csproj", "{66A6841D-ED81-41FF-827B-D6B9FB9121ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{BF8B66D1-A90F-46F3-97C8-B67D68DD1C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF8B66D1-A90F-46F3-97C8-B67D68DD1C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF8B66D1-A90F-46F3-97C8-B67D68DD1C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A6841D-ED81-41FF-827B-D6B9FB9121ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A6841D-ED81-41FF-827B-D6B9FB9121ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A6841D-ED81-41FF-827B-D6B9FB9121ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A6841D-ED81-41FF-827B-D6B9FB9121ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,7 @@ Global
 		{4B47D818-80A1-4D7B-846F-82224EC8D4A7} = {A5865D62-F51F-4C42-8BF5-059BB10F541E}
 		{B4268DF6-39C1-40DC-9670-271D8CE27384} = {A5865D62-F51F-4C42-8BF5-059BB10F541E}
 		{BF8B66D1-A90F-46F3-97C8-B67D68DD1C44} = {49DC369A-3069-43C5-A3D6-D0FC1DCAD9BA}
+		{66A6841D-ED81-41FF-827B-D6B9FB9121ED} = {F42C6E97-2C31-4DA1-A56E-ABB10A9239CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {313CA5A5-C5D3-4AD4-9A41-CF8B8F14CD59}

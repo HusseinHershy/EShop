@@ -24,5 +24,13 @@ namespace EShop.Infrastracture.Repositories
                                .ToListAsync();
             return products;
         }
+
+        public async Task<Product> GetProductById(long productId)
+        {
+            var product = await _dbContext.Products.Where(p=> p.ProductId == productId)
+                              .Include("ProdutPriceDetails")
+                               .SingleOrDefaultAsync();
+            return product;
+        }
     }
 }

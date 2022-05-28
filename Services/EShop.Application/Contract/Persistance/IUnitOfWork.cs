@@ -9,8 +9,8 @@ namespace EShop.Application.Contract.Persistance
 {
     public interface IUnitOfWork : IDisposable
     {
-       
-      
+        IProductRepository ProductRepository { get; }
+
         int Complete();
         Task<int> CompleteAsync();
 
