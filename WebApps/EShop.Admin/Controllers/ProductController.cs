@@ -1,26 +1,25 @@
-﻿using EShop.Application.Features.Products.Commands.CreateProduct;
+﻿using EShop.Admin.Models;
+using EShop.Admin.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MediatR;
-using System.Threading.Tasks;
 using System.Net;
-using EShop.Application.Features.Products;
-using EShop.Application.Features.Products.Queries.GetProductsList;
+using System.Threading.Tasks;
 
-namespace EShop.API.Controllers
+namespace EShop.Admin.Controllers
 {
     [Route("api/V1/[controller]/[action]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly IProductService _iProductService;
 
-        public ProductController(IMediator mediator)
+        public ProductController(IProductService productService)
         {
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _iProductService = productService ?? throw new ArgumentNullException(nameof(productService));
+
         }
 
         /// <summary>
@@ -30,9 +29,9 @@ namespace EShop.API.Controllers
         /// <returns>Product</returns>
         [HttpPost(Name = "CreateProduct")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> CreateProduct([FromBody] CreateProductCommand command)
+        public async Task<ActionResult> CreateProduct([FromBody] CreateProductModel command)
         {
-            var Product = await _mediator.Send(command);
+            var Product = await _iProductService.CreateProduct(command);
             return Ok(Product);
         }
 
@@ -41,11 +40,11 @@ namespace EShop.API.Controllers
         /// </summary>
         /// <returns>List Of Products</returns>
         [HttpGet(Name = "GetProducts")]
-        [ProducesResponseType(typeof(List<ProductVM>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<List<ProductVM>>> GetProducts()
+        [ProducesResponseType(typeof(List<ProductModel>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<List<ProductModel>>> GetProducts()
         {
-            var query = new GetProductsListQuery();
-            var Products = await _mediator.Send(query);
+            
+            var Products = await _iProductService.GetProduct();
             return Ok(Products);
         }
 
@@ -55,14 +54,11 @@ namespace EShop.API.Controllers
         /// <param name="ProductId">Product Unique Identifier</param>
         /// <returns>Product</returns>
         [HttpGet("{ProductId}", Name = "GetProductById")]
-        [ProducesResponseType(typeof(ProductVM), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<ProductVM>> GetProductById(long ProductId)
+        [ProducesResponseType(typeof(ProductModel), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<ProductModel>> GetProductById(long ProductId)
         {
-            var query = new GetProductByIdQuery(ProductId);
-            var Product = await _mediator.Send(query);
+            var Product = await _iProductService.GetProduct(ProductId);
             return Ok(Product);
         }
-
-
     }
 }
