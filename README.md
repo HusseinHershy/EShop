@@ -33,3 +33,7 @@ Eshop Project
 **Below is The Shareable Public Link For Postman Collection :**
 https://www.getpostman.com/collections/a2f51b666ccb495e4ec8
 
+**Testing Credentials**
+{ "user1","password1"}
+{ "user2","password2"}
+{ "user3","password3"}
