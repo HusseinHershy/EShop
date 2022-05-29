@@ -7,6 +7,7 @@ Eshop Project
 **Whats Including In This Repository**
 
 **Product Microservice - EShop.API**
+
 - Implementing CQRS, and Clean Architecture 
 - Developing CQRS with using MediatR, FluentValidation and AutoMapper packages
 - SqlServer database connection 
@@ -14,10 +15,16 @@ Eshop Project
 
 
 **API Gateway Ocelot Microservice - EShop.APIGt**
-Implement API Gateways with Ocelot
-Product microservices reroute through the API Gateways
+
+- Implement API Gateways with Ocelot
+- Product microservices reroute through the API Gateways
 
 
 **WebUI MVC Application -  EShop.Admin**
-ASP.NET Core Web Application with Bootstrap 4 
-Validation request using JSON token authentication
+
+- ASP.NET Core Web Application with Bootstrap 4 
+- Validation request using JSON token authentication
+
+**WebUI HealthCheck - EShop.WebStatus
+- To view the Web Status and make sure that every microservices are healthy.
+- Using HealthCheck UI 
