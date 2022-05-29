@@ -93,21 +93,21 @@ function productAdd() {
     }
 
 function productBuildDetails(product) {
-    var ret = "<div class='text-center'>" +
-
-        "<h5>" + product.name + "</h5>" +
+    console.log(product)
+    var ret = "<div >" +
+        "<img src=" + product.imageUrl + " alt='product'  class='mb-2' />"+
+        "<h3>" + product.name + "</h3>" +
         "<p class='text-muted mb-4'>" + product.description + "</p>" +
-        +"</div>" +
-        +"<div>" +
         "<div>" +
-        "<span>Price</span><span>" + product.produtPriceDetails.price + "</span><span>$</span></div>" +
-
+        "<span><b>Price </b></span><span> " + product.produtPriceDetails.price + "</span><span>$</span></div>" +
         "<div>" +
-        "<span>ActualCost</span><span>" + product.produtPriceDetails.actualCost + "</span><span>$</span> </div>";
+        "<span><b>ActualCost </b></span><span> " + product.produtPriceDetails.actualCost + "</span><span>$</span> </div>"
+        
+        ;
                
                 
           
-    return ret;
+    return ret;imageUrl
 }
 function productToFields(product) {
     $("#Name").val(product.Name);
@@ -167,7 +167,6 @@ function productToFields(product) {
                             "<td>" + product.description + "</td>" +
                             "<td>" + product.color + "</td>" +
                             "<td>" + product.categoryName + "</td>" +
-                            "<td>" + product.imageUrl + "</td>" +
                             "<td>" +
                                 "<button type='button' " +
                                 "onclick='productGet(this);' " +
