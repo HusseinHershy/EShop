@@ -11,10 +11,11 @@ Eshop Project
 - Implementing CQRS, and Clean Architecture 
 - Developing CQRS with using MediatR, FluentValidation and AutoMapper packages
 - SqlServer database connection 
-- Using Entity Framework Core ORM and auto migrate to SqlServer when application startup
+- Using Entity Framework Core ORM, Migrations and auto Seed Sql Tables when application startup
+- Swagger Open API Documentation
 
 
-**API Gateway Ocelot Microservice - EShop.APIGt**
+**API Gateway Ocelot Microservice - EShop.APIGtw**
 
 - Implement API Gateways with Ocelot
 - Product microservices reroute through the API Gateways
@@ -25,6 +26,10 @@ Eshop Project
 - ASP.NET Core Web Application with Bootstrap 4 
 - Validation request using JSON token authentication
 
-**WebUI HealthCheck - EShop.WebStatus
+**WebUI HealthCheck - EShop.WebStatus**
 - To view the Web Status and make sure that every microservices are healthy.
 - Using HealthCheck UI 
+
+**Below is The Shareable Public Link For Postman Collection :**
+https://www.getpostman.com/collections/a2f51b666ccb495e4ec8
+
