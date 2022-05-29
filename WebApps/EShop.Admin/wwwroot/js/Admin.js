@@ -1,5 +1,9 @@
 ﻿
-    $(document).ready(function () {
+$(document).ready(function () {
+    if (getCookie('LoginToken') === null) {
+        location.href = "/Home/Index";
+    }
+
         productList();
     });
 
@@ -107,7 +111,7 @@ function productBuildDetails(product) {
                
                 
           
-    return ret;imageUrl
+    return ret;
 }
 function productToFields(product) {
     $("#Name").val(product.Name);

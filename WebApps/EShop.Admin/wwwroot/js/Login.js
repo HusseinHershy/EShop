@@ -10,7 +10,7 @@
         }),
         success: function (data) {
             setCookie('LoginToken', data.token, 7);
-            alert("Welcome" +  $('#UserInput').val() );
+            location.href = "/Home/Product";
         },
         error: function (err) {
             alert("Login Failed");
