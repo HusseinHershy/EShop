@@ -5,26 +5,49 @@
 
     var Product = {
         ProductId: 0,
-    ProductName: "",
-    IntroductionDate: "",
-    Url: ""
+        Name: "",
+        Color: "",
+        Description: "",
+        CategoryName: "",
+        ImageUrl:"",
+   ProductDetail: {
+       Price: 0,
+       ActualCost:0
+        }
     }
 
   
 
     function addClick() {
         formClear();
+        $('#CreateProductModal').modal('show');
     }
+
 
   
 
-    function productAdd(product) {
+function productAdd() {
+    var NewProduct = {
+        Name: $('#Name').val(),
+        Color: $('#Color').val(),
+        Description: $('#Description').val(),
+        CategoryName: $('#CategoryName').val(),
+        ImageUrl: $('#ImageUrl').val(),
+        ProductDetail: {
+            Price: $('#Price').val(),
+            ActualCost: $('#ActualCost').val()
+        }
+    };
+    console.log(NewProduct);
         // Call Web API to add a new product
         $.ajax({
-            url: "/api/Product/CreateProduct",
+            url: "/api/v1/Product/CreateProduct",
             type: 'POST',
             contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(product),
+            data: JSON.stringify(NewProduct),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + getCookie('LoginToken'));
+            },
             success: function (product) {
                 productAddSuccess(product);
             },
@@ -51,10 +74,15 @@
             $.ajax({
                 url: "/api/V1/Product/GetProductById/" + id,
             type: 'GET',
-            dataType: 'json',
+                dataType: 'json',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer ' + getCookie('LoginToken'));
+                },
             success: function (product) {
                 productToFields(product);
                 $('#productDetailModal').modal('show');
+                $("#ProductPriceDetails").html("");
+                   
                 $("#ProductPriceDetails").append(
                     productBuildDetails(product));
         },
@@ -81,10 +109,14 @@ function productBuildDetails(product) {
           
     return ret;
 }
-            function productToFields(product) {
-                $("#productname").val(product.ProductName);
-            $("#introdate").val(product.IntroductionDate);
-            $("#url").val(product.Url);
+function productToFields(product) {
+    $("#Name").val(product.Name);
+    $("#Color").val(product.Color);
+    $("#Description").val(product.Description);
+    $("#CategoryName").val(product.CategoryName);
+    $("#ImageUrl").val(product.ImageUrl);
+    $("#Price").val(product.produtPriceDetails.Price);
+    $("#ActualCost").val(product.produtPriceDetails.ActualCost);
     }
 
             // Get all Products to display
@@ -94,6 +126,9 @@ function productBuildDetails(product) {
                     url: '/api/v1/Product/GetProducts/',
                     type: 'GET',
                     dataType: 'json',
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + getCookie('LoginToken'));
+                    },
                     success: function (products) {
                         productListSuccess(products);
                     },
@@ -150,10 +185,15 @@ function productBuildDetails(product) {
 
 
                         // Clear form fields
-                        function formClear() {
-                            $("#productname").val("");
-                        $("#introdate").val("");
-                        $("#url").val("");
+function formClear() {
+  
+        $("#Name").val("");
+        $("#Color").val("");
+        $("#Description").val("");
+        $("#CategoryName").val("");
+        $("#ImageUrl").val("");
+        $("#Price").val("");
+        $("#ActualCost").val("");
     }
 
                         // Handle exceptions from AJAX calls

@@ -23,7 +23,7 @@ namespace EShop.Admin.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Product()
         {
             return View();
         }

@@ -1,5 +1,6 @@
 ﻿using EShop.Admin.Models;
 using EShop.Admin.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace EShop.Admin.Controllers
 {
+    [Authorize]
     [Route("api/V1/[controller]/[action]")]
     [ApiController]
     public class ProductController : ControllerBase
