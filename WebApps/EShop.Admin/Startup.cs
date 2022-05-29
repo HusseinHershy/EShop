@@ -1,7 +1,9 @@
 using EShop.Admin.Repository;
 using EShop.Admin.Services;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -59,7 +61,7 @@ namespace EShop.Admin
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Product.AdminAPI", Version = "v1" });
             });
-
+            services.AddHealthChecks();
             services.AddTransient(typeof(HttpClient), typeof(HttpClient));
             services.AddTransient(typeof(IProductService), typeof(ProductService));
 
@@ -93,6 +95,12 @@ namespace EShop.Admin
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+
+                });
             });
         }
     }
